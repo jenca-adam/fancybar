@@ -71,7 +71,7 @@ def parse_hex(h):
 
     l = len(h)
     if l == 6:  # long form , no alpha
-        return (col & 0xFF0000) >> 16, (col & 0xFF00) >> 8, (col & 0xFF), 1
+        return (col & 0xFF0000) >> 16, (col & 0xFF00) >> 8, (col & 0xFF)
     elif l == 8:  # long form, alpha
         scol = col >> 8
         return (
@@ -79,7 +79,7 @@ def parse_hex(h):
             (scol & 0xFF00) >> 8,
             (scol & 0xFF),
             (col & 0xFF) / 255,
-        )
+            )
     elif l == 3:  # short form, no alpha
         return 17 * ((col & 0xF00) >> 8), 17 * ((col & 0xF0) >> 4), 17 * (col & 0xF), 1
     elif l == 4:  # short form, alpha
@@ -111,13 +111,14 @@ def _color_range(start_r, start_g, start_b, end_r, end_g, end_b, length):
 
 def _generate_gradient_colors(startcol, endcol, length):
     col_r = _color_range(*startcol, *endcol, length)
+    cur=startcol
     prev = 0, 0, 0
     i = 0
     curr_frame = ""
     prev_frame = ""
     while True:
         try:
-            r, g, b = next(col_r)
+            cur = next(col_r)
         except StopIteration:
             break
         if i % 2 == 1:

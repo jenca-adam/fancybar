@@ -17,6 +17,7 @@ You can also create a bar without an iterable:
         bar = fancybar.ProgressBar(100)
         with bar:
                 # Do something
-
-
+Bar Types
+---------
+Please note that not all bar types will work on all terminals!
 
