@@ -1,6 +1,6 @@
 Metadata-Version: 2.1
 Name: fancybar
-Version: 0.1.1
+Version: 0.1.3
 Summary: A highly customizable terminal progress bar library
 Home-page: https://github.com/jenca-adam/fancybar
 Author: Adam Jenca
@@ -18,9 +18,9 @@ Classifier: Programming Language :: Python :: 3.10
 
 
 
-.. figure:: fancybar-logo.png
+.. figure:: https://fancybar.readthedocs.io/en/latest/_images/fancybar-logo.png
    :align: center
-.. image:: fancybar-showcase.gif
+.. image:: https://fancybar.readthedocs.io/en/latest/_images/fancybar-showcase.gif
 
 ``fancybar`` is a highly customizable terminal progress bar library.
 Usage is very simple:
@@ -68,41 +68,41 @@ There are currently the following bar types:
 
 - full
   
-  .. image:: bartype_full.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_full.gif
 
   This bar type uses character ' ' (U+0020 SPACE) and filler ' ' (U+0020 SPACE) with default character background color "white". 
   Your terminal must have the ability to output colored text for this bar type to properly render.
 - plusMinus
   
-  .. image:: bartype_plusminus.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_plusminus.gif
   
   This bar type uses character '+' (U+002B PLUS SIGN) and filler '-' (U+002D HYPHEN-MINUS) with default character foreground color "green" and default filler foreground color "red". 
   Your terminal must have the ability to output colored text for this bar type to properly render.
 
 - classic
   
-  .. image:: bartype_classic.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_classic.gif
 
   This bar type uses character '#' (U+0023 NUMBER SIGN) and filler ' ' (U+0020 SPACE). 
   This bar type should work on any terminal.
 
 - triangles
 
-  .. image:: bartype_triangles.gif 
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_triangles.gif 
 
   This bar type uses character '▶' (U+25B6 BLACK RIGHT-POINTING TRIANGLE) and filler '▷' (U+25B7 WHITE RIGHT-POINTING TRIANGLE).
   Your terminal must have the ability to display Unicode characters for this bar type to properly render.
 
 - dots
 
-  .. image:: bartype_dots.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_dots.gif
 
   This bar type uses character '.' (U+002E FULL STOP) and filler ' ' (U+0020 SPACE).
   This bar type should work on any terminal.
 
 - gradient
 
-  .. image:: bartype_gradient.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_gradient.gif
   
   *THIS BAR DOES NOT SHARE THE ARGUMENTS WITH THE OTHER BARS.*
  
@@ -111,7 +111,7 @@ There are currently the following bar types:
 
 - minus
   
-  .. image:: bartype_minus.gif
+  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_minus.gif
   
   This bar type uses character '-' (U+002D HYPHEN-MINUS) and filler ' ' (U+0020 SPACE)
 
@@ -162,7 +162,7 @@ Spinners
 
 *"loading" spinner is made by me.*
 
-.. image:: spinners.gif
+.. image:: https://fancybar.readthedocs.io/en/latest/_images/spinners.gif
 
 All spinners are on the GIF above.
 The spinners not shown are not shown because of the asciinema charset limitations. To get a more acute representation of the spinners, clone the repository and run ``python3 spinner_test.py``.
@@ -216,15 +216,14 @@ All Terminals
 
 These colors should work on all terminals that support colored output
 
-.. image:: colors_main.gif
+.. image:: https://fancybar.readthedocs.io/en/latest/_images/colors_main.gif
 
 256-color
 ^^^^^^^^^^^^^^^
 
 These colors work on 256-color type terminals. The ones that are not in `All terminals` might display differently/incorrectly in other terminals.
 
-.. figure:: colors.gif
-   :width: 50em
+.. figure:: https://fancybar.readthedocs.io/en/latest/_images/colors.gif
    :align: center
 
 RGB Tuples

@@ -1,4 +1,3 @@
-README.rst
 setup.py
 fancybar/__init__.py
 fancybar/colors.json

@@ -9,7 +9,7 @@
 project = 'fancybar'
 copyright = '2023, Adam Jenca'
 author = 'Adam Jenca'
-release = '0.1.1'
+release = '0.1.3'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
