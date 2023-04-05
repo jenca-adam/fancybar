@@ -1,5 +1,5 @@
 
-.. figure:: docs/source/fancybar-logo2.png
+.. figure:: fancybar-logo-gh.png
    :align: center
 .. image:: build/fancybar-showcase.gif
 
