@@ -215,5 +215,14 @@ RGB tuples must be in format 0-255 and must not contain alpha part.
 RGB tuples are only supported in Truecolor terminals.
 They might display differently/incorrectly in other terminals.
 
+Runtime attributes
+==================
+
+While your bar is running, you can easily access some of its attributes:
+
+- ``ProgressBar.eta`` - current ETA in seconds 
+- ``ProgressBar.percentage`` - current percentage
+- ``ProgressBar.items_done`` - number of items already done
+
 
 .. |spinner-line| image:: line-spinner.gif

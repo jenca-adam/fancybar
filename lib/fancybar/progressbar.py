@@ -79,7 +79,7 @@ def parse_hex(h):
             (scol & 0xFF00) >> 8,
             (scol & 0xFF),
             (col & 0xFF) / 255,
-            )
+        )
     elif l == 3:  # short form, no alpha
         return 17 * ((col & 0xF00) >> 8), 17 * ((col & 0xF0) >> 4), 17 * (col & 0xF)
     elif l == 4:  # short form, alpha
@@ -111,7 +111,7 @@ def _color_range(start_r, start_g, start_b, end_r, end_g, end_b, length):
 
 def _generate_gradient_colors(startcol, endcol, length):
     col_r = _color_range(*startcol, *endcol, length)
-    cur=startcol
+    cur = startcol
     prev = 0, 0, 0
     i = 0
     curr_frame = ""
@@ -124,11 +124,11 @@ def _generate_gradient_colors(startcol, endcol, length):
         if i % 2 == 1:
             nxt = cur
             cur = prev
-            prev_frame = curr_frame = prev_frame + GRADIENT_TEMPLATE.format(*cur,*nxt)
+            prev_frame = curr_frame = prev_frame + GRADIENT_TEMPLATE.format(*cur, *nxt)
 
         else:
             nxt = 0, 0, 0
-            prev= cur
+            prev = cur
             curr_frame += GRADIENT_TEMPLATE.format(*cur, *nxt)
         i += 1
         yield curr_frame
@@ -249,6 +249,8 @@ class ProgressBar:
         self.start_time = None
         self.list = bartype(length, **kwargs).frames
         self.item_name = item_name
+        self.eta = None
+        self.percentage = None
         self.spinner = Spinner(spinner, speed=spinner_speed)
         self.percentage_fg_color = percentage_fg_color
         self.spinner_fg_color = spinner_fg_color
@@ -292,9 +294,11 @@ class ProgressBar:
             self.percentage = (self.items_done / self.items) * 100
             iterations = self.items_done / (time.time() - self.start_time)
             self.eta = round((self.items - self.items_done) / iterations)
-            string = f"\r  {color_fg(self.spinner_fg_color)}{color_bg(self.spinner_bg_color)}{sf}{sfpad}{END}"+\
-            f"<{self.items_done}/{self.items}> {color_fg(self.percentage_fg_color)}{color_bg(self.percentage_bg_color)}{self.percentage:.1f}%{END}"+\
-            f"|{image}| ({iterations:.2f} {self.item_name}/s) ({self.eta//60:0>2}:{self.eta%60:0>2}eta)     "
+            string = (
+                f"\r  {color_fg(self.spinner_fg_color)}{color_bg(self.spinner_bg_color)}{sf}{sfpad}{END}"
+                + f"<{self.items_done}/{self.items}> {color_fg(self.percentage_fg_color)}{color_bg(self.percentage_bg_color)}{self.percentage:.1f}%{END}"
+                + f"|{image}| ({iterations:.2f} {self.item_name}/s) ({self.eta//60:0>2}:{self.eta%60:0>2}eta)     "
+            )
 
             sys.stdout.write(string)
             sys.stdout.flush()

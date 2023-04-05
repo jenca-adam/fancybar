@@ -3,7 +3,7 @@ import setuptools
 setuptools.setup(
     name="fancybar",
     description="A highly customizable terminal progress bar library",
-    version="0.1.3",
+    version="0.2.0",
     long_description="""
 
 .. figure:: https://fancybar.readthedocs.io/en/latest/_images/fancybar-logo.png
@@ -69,7 +69,7 @@ There are currently the following bar types:
 
 - classic
   
-  .. image:: https://fancybar.readthedocs.io/en/latest/_images/bartype_classic.gif
+  .. image:https://fancybar.readthedocs.io/en/latest/_images/colors.gif: https://fancybar.readthedocs.io/en/latest/_images/bartype_classic.gif
 
   This bar type uses character '#' (U+0023 NUMBER SIGN) and filler ' ' (U+0020 SPACE). 
   This bar type should work on any terminal.
@@ -220,6 +220,16 @@ RGB Tuples
 RGB tuples must be in format 0-255 and must not contain alpha part.
 RGB tuples are only supported in Truecolor terminals.
 They might display differently/incorrectly in other terminals.
+
+Runtime attributes
+==================
+
+While your bar is running, you can easily access some of its attributes:
+
+- ``ProgressBar.eta`` - current ETA in seconds 
+- ``ProgressBar.percentage`` - current percentage
+- ``ProgressBar.items_done`` - number of items already done
+
 
 
 .. |spinner-line| image:: line-spinner.gif
