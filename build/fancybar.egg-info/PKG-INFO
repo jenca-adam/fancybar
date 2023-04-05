@@ -1,25 +1,22 @@
-.. fancybar documentation master file, created by
-   sphinx-quickstart on Mon Apr  3 20:49:56 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Metadata-Version: 2.1
+Name: fancybar
+Version: 0.1.1
+Summary: A highly customizable terminal progress bar library
+Home-page: https://github.com/jenca-adam/fancybar
+Author: Adam Jenca
+Author-email: jenca.a@gjh.sk
+Keywords: Progress bar,TUI
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
 
-Welcome to fancybar's documentation!
-====================================
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
-
-.. role:: python(code)
-   :language: python
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 .. figure:: fancybar-logo.png
    :align: center
@@ -122,16 +119,16 @@ Arguments
 ----------------
 General Arguments
 ^^^^^^^^^^^^^^^^^
-All bar types (except gradient and including :ref:`custom bar types <Creating custom bar types>` ) can be customized using a set of keyword-only arguments given to ``ProgressBar``. See :ref:`Entry Points`
+All bar types (except gradient and including `custom bar types` ) can be customized using a set of keyword-only arguments given to ``ProgressBar``. See `Entry Points`
 
 These arguments are:
 
-- ``char_bg_color`` Specifies the background color of the filled part of the progressbar. See :ref:`Colors` for more information about specifying colors.
-- ``char_fg_color`` Specifies the color of the characters in the filled part of the progressbar. See :ref:`Colors` for more information about specifying colors.
-- ``filler_bg_color`` Specifies the background color of the empty part of the progressbar. See :ref:`Colors` for more information about specifying colors.
-- ``filler_fg_color`` Specifies the color of the characters in the empty part of the progressbar. See :ref:`Colors` for more information about specifying colors.
+- ``char_bg_color`` Specifies the background color of the filled part of the progressbar. See `Colors` for more information about specifying colors.
+- ``char_fg_color`` Specifies the color of the characters in the filled part of the progressbar. See `Colors` for more information about specifying colors.
+- ``filler_bg_color`` Specifies the background color of the empty part of the progressbar. See `Colors` for more information about specifying colors.
+- ``filler_fg_color`` Specifies the color of the characters in the empty part of the progressbar. See `Colors` for more information about specifying colors.
 
-All of these arguments default to :python:`None`.
+All of these arguments default to `None`.
 
 
 Gradient type
@@ -139,8 +136,8 @@ Gradient type
 
 Gradient bar type has different arguments:
 
-- ``start_color`` Specifies the starting color of the bar's gradient. Defaults to :python:`"red"`
-- ``end_color`` Specifies the ending color of the bar's gradient. Defaults to :python:`"green"`
+- ``start_color`` Specifies the starting color of the bar's gradient. Defaults to `"red"`
+- ``end_color`` Specifies the ending color of the bar's gradient. Defaults to `"green"`
 
 These are set the same way as 
 
@@ -152,11 +149,11 @@ Its arguments are:
 
 - ``char`` Character to be used in the filled part of the progressbar.(required)
 - ``filler`` Character to be used in the empty part of the progressbar.(required)
-- ``name`` :python:`__qualname__` of the returned class. (defaults to "?")
-- ``char_bg_color`` See :ref:`Arguments` (defaults to :python:`None`)
-- ``char_fg_color`` See :ref:`Arguments` (defaults to :python:`None`)
-- ``filler_bg_color`` See :ref:`Arguments` (defaults to :python:`None`)
-- ``filler_fg_color`` See :ref:`Arguments` (defaults to :python:`None`)
+- ``name`` `__qualname__` of the returned class. (defaults to "?")
+- ``char_bg_color`` See `Arguments` (defaults to `None`)
+- ``char_fg_color`` See `Arguments` (defaults to `None`)
+- ``filler_bg_color`` See `Arguments` (defaults to `None`)
+- ``filler_fg_color`` See `Arguments` (defaults to `None`)
 
 Spinners
 ========
@@ -168,9 +165,9 @@ Spinners
 .. image:: spinners.gif
 
 All spinners are on the GIF above.
-The spinners not shown are not shown because of the asciinema charset limitations. To get a more acute representation of the spinners, clone the repository and run ``python3 showcases/spinner_test.py``.
+The spinners not shown are not shown because of the asciinema charset limitations. To get a more acute representation of the spinners, clone the repository and run ``python3 spinner_test.py``.
 The default spinner is |spinner-line|.
-You can choose a spinner by setting the argument ``spinner`` of ``ProgressBar`` to its name. See :ref:`Entry Points`
+You can choose a spinner by setting the argument ``spinner`` of ``ProgressBar`` to its name. See `Entry Points`
 
 Changing spinner speed
 ----------------------
@@ -187,25 +184,25 @@ ProgressBar
 Main entry point of the ``fancybar`` library is the ``ProgressBar`` class.
 Its ``__init__`` function has the following arguments:
 
-- ``items`` (:python:`int`): Required. The number of items the progress bar is running on.
-- ``length`` (:python:`int`): How much space will the progressbar take on screen. Defaults to :python:`50`
-- ``item_name`` (:python:`str`): What abbreviation to use for items in the items/second part of the progress bar. Defaults to :python:`"it"`
-- ``spinner`` (:python:`str`): The name of the spinner. See :ref:`Spinners`. Default :python:`"line"`
-- ``spinner_speed`` (:python:`float` or :python:`int`): The spinner's speed. See :ref:`Spinners`. Default :python:`0.5`.
-- ``percentage_bg_color`` (:python:`str` or :python:`tuple` or :python:`None`): What color is to be used for the background color of the percentage part of the progress bar. See :ref:`Colors`. Default :python:`None`
-- ``percentage_fg_color``  (:python:`str` or :python:`tuple` or :python:`None`): What color is to be used for the foreground color of the percentage part of the progress bar. See :ref:`Colors`. Default :python:`None`
-- ``spinner_bg_color`` (:python:`str` or :python:`tuple` or :python:`None`): What color is to be used for the background color of the spinner part of the progress bar. See :ref:`Colors`. Default :python:`None`
-- ``spinner_fg_color`` (:python:`str` or :python:`tuple` or :python:`None`): What color is to be used for the foreground color of the spinner part of the progress bar. See :ref:`Colors`. Default :python:`None`.
-- ``bartype`` (:python:`str` or :python:`type`): Bar type for the progress bar. See :ref:`Bar Types`. Default :python:`"full"`.
-- ``hide_cursor`` (:python:`bool`): Whether or not is the cursor to be hidden during the progress bar's runtime. Default :python:`False`
+- ``items`` (`int`): Required. The number of items the progress bar is running on.
+- ``length`` (`int`): How much space will the progressbar take on screen. Defaults to `50`
+- ``item_name`` (`str`): What abbreviation to use for items in the items/second part of the progress bar. Defaults to `"it"`
+- ``spinner`` (`str`): The name of the spinner. See `Spinners`. Default `"line"`
+- ``spinner_speed`` (`float` or `int`): The spinner's speed. See `Spinners`. Default `0.5`.
+- ``percentage_bg_color`` (`str` or `tuple` or `None`): What color is to be used for the background color of the percentage part of the progress bar. See `Colors`. Default `None`
+- ``percentage_fg_color``  (`str` or `tuple` or `None`): What color is to be used for the foreground color of the percentage part of the progress bar. See `Colors`. Default `None`
+- ``spinner_bg_color`` (`str` or `tuple` or `None`): What color is to be used for the background color of the spinner part of the progress bar. See `Colors`. Default `None`
+- ``spinner_fg_color`` (`str` or `tuple` or `None`): What color is to be used for the foreground color of the spinner part of the progress bar. See `Colors`. Default `None`.
+- ``bartype`` (`str` or `type`): Bar type for the progress bar. See `Bar Types`. Default `"full"`.
+- ``hide_cursor`` (`bool`): Whether or not is the cursor to be hidden during the progress bar's runtime. Default `False`
 
 All arguments after ``items`` are not required and keyword-only
 
 SequentialProgressBar
 ---------------------
-``SequentialProgressBar`` is a subclass of :ref:`ProgressBar` that creates progress bars from an iterable sequence. :python:`len()` must be callable upon those sequences.
-``SequentialProgressbar`` replaces :ref:`ProgressBar`'s ``items`` argument by a ``seq`` argument -- the sequence you want to create progress bars from. All other arguments are unchanged. 
-``bar`` is an alias for ``SequentialProgressBar``, as it is more likely to be used than :ref:`ProgressBar`
+``SequentialProgressBar`` is a subclass of `ProgressBar` that creates progress bars from an iterable sequence. `len()` must be callable upon those sequences.
+``SequentialProgressbar`` replaces `ProgressBar`'s ``items`` argument by a ``seq`` argument -- the sequence you want to create progress bars from. All other arguments are unchanged. 
+``bar`` is an alias for ``SequentialProgressBar``, as it is more likely to be used than `ProgressBar`
 
 Colors
 ======
@@ -224,7 +221,7 @@ These colors should work on all terminals that support colored output
 256-color
 ^^^^^^^^^^^^^^^
 
-These colors work on 256-color type terminals. The ones that are not in :ref:`All terminals` might display differently/incorrectly in other terminals.
+These colors work on 256-color type terminals. The ones that are not in `All terminals` might display differently/incorrectly in other terminals.
 
 .. figure:: colors.gif
    :width: 50em
@@ -239,3 +236,4 @@ They might display differently/incorrectly in other terminals.
 
 
 .. |spinner-line| image:: line-spinner.gif
+

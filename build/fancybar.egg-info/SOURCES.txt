@@ -1,0 +1,11 @@
+README.rst
+setup.py
+fancybar/__init__.py
+fancybar/colors.json
+fancybar/progressbar.py
+fancybar/spinners.json
+fancybar.egg-info/PKG-INFO
+fancybar.egg-info/SOURCES.txt
+fancybar.egg-info/dependency_links.txt
+fancybar.egg-info/requires.txt
+fancybar.egg-info/top_level.txt

@@ -42,26 +42,190 @@
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+<figure class="align-center">
+<img alt="_images/fancybar-logo.png" src="_images/fancybar-logo.png" />
+</figure>
 <img alt="_images/fancybar-showcase.gif" src="_images/fancybar-showcase.gif" />
-<p><cite>fancybar</cite> is a highly customizable terminal progress bar library.
-Usage is very simple:
-.. code-block:</p>
+<p><code class="docutils literal notranslate"><span class="pre">fancybar</span></code> is a highly customizable terminal progress bar library.
+Usage is very simple:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fancybar</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">fancybar</span><span class="o">.</span><span class="n">bar</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">)):</span>
    <span class="c1"># Do something</span>
 </pre></div>
 </div>
-<p>You can also create a bar without an iterable:
-.. code-block:</p>
+<p>You can also create a bar without an iterable:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fancybar</span>
 <span class="n">bar</span> <span class="o">=</span> <span class="n">fancybar</span><span class="o">.</span><span class="n">ProgressBar</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
    <span class="k">with</span> <span class="n">bar</span><span class="p">:</span>
        <span class="c1"># Do something</span>
 </pre></div>
 </div>
+</section>
+<section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this heading">¶</a></h1>
+<section id="pip">
+<h2>Pip<a class="headerlink" href="#pip" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">python3 -m pip install fancybar</span>
+</pre></div>
+</div>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Permalink to this heading">¶</a></h2>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">git clone https://github.com/jenca-adam/fancybar</span>
+<span class="go">cd build</span>
+<span class="go">python3 setup.py install</span>
+</pre></div>
+</div>
+</section>
+</section>
 <section id="bar-types">
-<h2>Bar Types<a class="headerlink" href="#bar-types" title="Permalink to this heading">¶</a></h2>
-<p>Please note that not all bar types will work on all terminals!</p>
+<h1>Bar Types<a class="headerlink" href="#bar-types" title="Permalink to this heading">¶</a></h1>
+<p>Please note that not all bar types will work on all terminals!
+Bar type showcases can be seen in the gif file at the top of this page.
+You can select a bar type using the <code class="docutils literal notranslate"><span class="pre">bartype</span></code> argument of <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code>
+There are currently the following bar types:</p>
+<ul>
+<li><p>full</p>
+<img alt="_images/bartype_full.gif" src="_images/bartype_full.gif" />
+<p>This bar type uses character ‘ ‘ (U+0020 SPACE) and filler ‘ ‘ (U+0020 SPACE) with default character background color “white”.
+Your terminal must have the ability to output colored text for this bar type to properly render.</p>
+</li>
+<li><p>plusMinus</p>
+<img alt="_images/bartype_plusminus.gif" src="_images/bartype_plusminus.gif" />
+<p>This bar type uses character ‘+’ (U+002B PLUS SIGN) and filler ‘-’ (U+002D HYPHEN-MINUS) with default character foreground color “green” and default filler foreground color “red”.
+Your terminal must have the ability to output colored text for this bar type to properly render.</p>
+</li>
+<li><p>classic</p>
+<img alt="_images/bartype_classic.gif" src="_images/bartype_classic.gif" />
+<p>This bar type uses character ‘#’ (U+0023 NUMBER SIGN) and filler ‘ ‘ (U+0020 SPACE).
+This bar type should work on any terminal.</p>
+</li>
+<li><p>triangles</p>
+<img alt="_images/bartype_triangles.gif" src="_images/bartype_triangles.gif" />
+<p>This bar type uses character ‘▶’ (U+25B6 BLACK RIGHT-POINTING TRIANGLE) and filler ‘▷’ (U+25B7 WHITE RIGHT-POINTING TRIANGLE).
+Your terminal must have the ability to display Unicode characters for this bar type to properly render.</p>
+</li>
+<li><p>dots</p>
+<img alt="_images/bartype_dots.gif" src="_images/bartype_dots.gif" />
+<p>This bar type uses character ‘.’ (U+002E FULL STOP) and filler ‘ ‘ (U+0020 SPACE).
+This bar type should work on any terminal.</p>
+</li>
+<li><p>gradient</p>
+<img alt="_images/bartype_gradient.gif" src="_images/bartype_gradient.gif" />
+<p><em>THIS BAR DOES NOT SHARE THE ARGUMENTS WITH THE OTHER BARS.</em></p>
+<p>This bar type uses character ‘▌’ (U+258C LEFT HALF BLOCK). The background and foreground colors are shifting in a gradient specified by the arguments <code class="docutils literal notranslate"><span class="pre">start_color</span></code> (default “red”) and <code class="docutils literal notranslate"><span class="pre">end_color</span></code> (default “green”) of <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code> .
+Your terminal must have the ability to display Truecolor 24-bit colors (e.g. xterm and its derivatives, KDE Konsole, KDE Yakuake) and to display Unicode characters for this bar type to properly render.</p>
+</li>
+<li><p>minus</p>
+<img alt="_images/bartype_minus.gif" src="_images/bartype_minus.gif" />
+<p>This bar type uses character ‘-’ (U+002D HYPHEN-MINUS) and filler ‘ ‘ (U+0020 SPACE)</p>
+</li>
+</ul>
+<section id="arguments">
+<h2>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">¶</a></h2>
+<section id="general-arguments">
+<h3>General Arguments<a class="headerlink" href="#general-arguments" title="Permalink to this heading">¶</a></h3>
+<p>All bar types (except gradient and including <a class="reference internal" href="#creating-custom-bar-types"><span class="std std-ref">custom bar types</span></a> ) can be customized using a set of keyword-only arguments given to <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code>. See <a class="reference internal" href="#entry-points"><span class="std std-ref">Entry Points</span></a></p>
+<p>These arguments are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char_bg_color</span></code> Specifies the background color of the filled part of the progressbar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a> for more information about specifying colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char_fg_color</span></code> Specifies the color of the characters in the filled part of the progressbar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a> for more information about specifying colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filler_bg_color</span></code> Specifies the background color of the empty part of the progressbar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a> for more information about specifying colors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filler_fg_color</span></code> Specifies the color of the characters in the empty part of the progressbar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a> for more information about specifying colors.</p></li>
+</ul>
+<p>All of these arguments default to <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>.</p>
+</section>
+<section id="gradient-type">
+<h3>Gradient type<a class="headerlink" href="#gradient-type" title="Permalink to this heading">¶</a></h3>
+<p>Gradient bar type has different arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">start_color</span></code> Specifies the starting color of the bar’s gradient. Defaults to <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;red&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end_color</span></code> Specifies the ending color of the bar’s gradient. Defaults to <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;green&quot;</span></code></p></li>
+</ul>
+<p>These are set the same way as</p>
+</section>
+</section>
+<section id="creating-custom-bar-types">
+<h2>Creating custom bar types<a class="headerlink" href="#creating-custom-bar-types" title="Permalink to this heading">¶</a></h2>
+<p>If the built-in bar types are not enough for your needs, you can easily create custom ones using <code class="docutils literal notranslate"><span class="pre">create_bar_type()</span></code> function.
+Its arguments are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">char</span></code> Character to be used in the filled part of the progressbar.(required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filler</span></code> Character to be used in the empty part of the progressbar.(required)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">name</span></code> <code class="code highlight python docutils literal highlight-python"><span class="vm">__qualname__</span></code> of the returned class. (defaults to “?”)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char_bg_color</span></code> See <a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a> (defaults to <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">char_fg_color</span></code> See <a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a> (defaults to <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filler_bg_color</span></code> See <a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a> (defaults to <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filler_fg_color</span></code> See <a class="reference internal" href="#arguments"><span class="std std-ref">Arguments</span></a> (defaults to <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>)</p></li>
+</ul>
+</section>
+</section>
+<section id="spinners">
+<h1>Spinners<a class="headerlink" href="#spinners" title="Permalink to this heading">¶</a></h1>
+<p><em>Credit for all spinners except “loading” goes to</em> <a class="reference external" href="https://github.com/sindresorhus/cli-spinners">Sindre Sorhus</a></p>
+<p><em>“loading” spinner is made by me.</em></p>
+<img alt="_images/spinners.gif" src="_images/spinners.gif" />
+<p>All spinners are on the GIF above.
+The spinners not shown are not shown because of the asciinema charset limitations. To get a more acute representation of the spinners, clone the repository and run <code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">spinner_test.py</span></code>.
+The default spinner is <img alt="spinner-line" src="_images/line-spinner.gif" />.
+You can choose a spinner by setting the argument <code class="docutils literal notranslate"><span class="pre">spinner</span></code> of <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code> to its name. See <a class="reference internal" href="#entry-points"><span class="std std-ref">Entry Points</span></a></p>
+<section id="changing-spinner-speed">
+<h2>Changing spinner speed<a class="headerlink" href="#changing-spinner-speed" title="Permalink to this heading">¶</a></h2>
+<p>If you don’t like the animation speed on your spinner, you can change its speed using the argument <code class="docutils literal notranslate"><span class="pre">spinner_speed</span></code> of <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code>.
+<code class="docutils literal notranslate"><span class="pre">spinner_speed</span></code> is the speed of the spinner on the progress bar in revolutions per iteration. Default is <code class="docutils literal notranslate"><span class="pre">0.5</span></code>.</p>
+</section>
+</section>
+<section id="entry-points">
+<h1>Entry Points<a class="headerlink" href="#entry-points" title="Permalink to this heading">¶</a></h1>
+<section id="progressbar">
+<h2>ProgressBar<a class="headerlink" href="#progressbar" title="Permalink to this heading">¶</a></h2>
+<p>Main entry point of the <code class="docutils literal notranslate"><span class="pre">fancybar</span></code> library is the <code class="docutils literal notranslate"><span class="pre">ProgressBar</span></code> class.
+Its <code class="docutils literal notranslate"><span class="pre">__init__</span></code> function has the following arguments:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">items</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">int</span></code>): Required. The number of items the progress bar is running on.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">int</span></code>): How much space will the progressbar take on screen. Defaults to <code class="code highlight python docutils literal highlight-python"><span class="mi">50</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">item_name</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code>): What abbreviation to use for items in the items/second part of the progress bar. Defaults to <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;it&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinner</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code>): The name of the spinner. See <a class="reference internal" href="#spinners"><span class="std std-ref">Spinners</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;line&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinner_speed</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">float</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">int</span></code>): The spinner’s speed. See <a class="reference internal" href="#spinners"><span class="std std-ref">Spinners</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="mf">0.5</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percentage_bg_color</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">tuple</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>): What color is to be used for the background color of the percentage part of the progress bar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">percentage_fg_color</span></code>  (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">tuple</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>): What color is to be used for the foreground color of the percentage part of the progress bar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinner_bg_color</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">tuple</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>): What color is to be used for the background color of the spinner part of the progress bar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">spinner_fg_color</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">tuple</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>): What color is to be used for the foreground color of the spinner part of the progress bar. See <a class="reference internal" href="#colors"><span class="std std-ref">Colors</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="kc">None</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bartype</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">str</span></code> or <code class="code highlight python docutils literal highlight-python"><span class="nb">type</span></code>): Bar type for the progress bar. See <a class="reference internal" href="#bar-types"><span class="std std-ref">Bar Types</span></a>. Default <code class="code highlight python docutils literal highlight-python"><span class="s2">&quot;full&quot;</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hide_cursor</span></code> (<code class="code highlight python docutils literal highlight-python"><span class="nb">bool</span></code>): Whether or not is the cursor to be hidden during the progress bar’s runtime. Default <code class="code highlight python docutils literal highlight-python"><span class="kc">False</span></code></p></li>
+</ul>
+<p>All arguments after <code class="docutils literal notranslate"><span class="pre">items</span></code> are not required and keyword-only</p>
+</section>
+<section id="sequentialprogressbar">
+<h2>SequentialProgressBar<a class="headerlink" href="#sequentialprogressbar" title="Permalink to this heading">¶</a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">SequentialProgressBar</span></code> is a subclass of <a class="reference internal" href="#progressbar"><span class="std std-ref">ProgressBar</span></a> that creates progress bars from an iterable sequence. <code class="code highlight python docutils literal highlight-python"><span class="nb">len</span><span class="p">()</span></code> must be callable upon those sequences.
+<code class="docutils literal notranslate"><span class="pre">SequentialProgressbar</span></code> replaces <a class="reference internal" href="#progressbar"><span class="std std-ref">ProgressBar</span></a>’s <code class="docutils literal notranslate"><span class="pre">items</span></code> argument by a <code class="docutils literal notranslate"><span class="pre">seq</span></code> argument – the sequence you want to create progress bars from. All other arguments are unchanged.
+<code class="docutils literal notranslate"><span class="pre">bar</span></code> is an alias for <code class="docutils literal notranslate"><span class="pre">SequentialProgressBar</span></code>, as it is more likely to be used than <a class="reference internal" href="#progressbar"><span class="std std-ref">ProgressBar</span></a></p>
+</section>
+</section>
+<section id="colors">
+<h1>Colors<a class="headerlink" href="#colors" title="Permalink to this heading">¶</a></h1>
+<p>Colors can be specified by either a color string or a RGB tuple. RGB tuples only work on Truecolor terminals.</p>
+<section id="color-strings">
+<h2>Color Strings<a class="headerlink" href="#color-strings" title="Permalink to this heading">¶</a></h2>
+<section id="all-terminals">
+<h3>All Terminals<a class="headerlink" href="#all-terminals" title="Permalink to this heading">¶</a></h3>
+<p>These colors should work on all terminals that support colored output</p>
+<img alt="_images/colors_main.gif" src="_images/colors_main.gif" />
+</section>
+<section id="color">
+<h3>256-color<a class="headerlink" href="#color" title="Permalink to this heading">¶</a></h3>
+<p>These colors work on 256-color type terminals. The ones that are not in <a class="reference internal" href="#all-terminals"><span class="std std-ref">All Terminals</span></a> might display differently/incorrectly in other terminals.</p>
+<figure class="align-center">
+<a class="reference internal image-reference" href="_images/colors.gif"><img alt="_images/colors.gif" src="_images/colors.gif" style="width: 50em;" /></a>
+</figure>
+</section>
+</section>
+<section id="rgb-tuples">
+<h2>RGB Tuples<a class="headerlink" href="#rgb-tuples" title="Permalink to this heading">¶</a></h2>
+<p>RGB tuples must be in format 0-255 and must not contain alpha part.
+RGB tuples are only supported in Truecolor terminals.
+They might display differently/incorrectly in other terminals.</p>
 </section>
 </section>
 
